@@ -1,13 +1,20 @@
-.venv/
+# Python
 __pycache__/
 *.pyc
 
-.pytest_cache/
+# Virtual Environment
+.venv/
 
+# Reports
 allure-results/
 allure-report/
+reports/screenshots/
+reports/output.json
+reports/step_results.json
 
-logs/*.log
-screenshots/*.png
-
+# IDE
 .idea/
+
+# Logs
+logs/
+*.log
