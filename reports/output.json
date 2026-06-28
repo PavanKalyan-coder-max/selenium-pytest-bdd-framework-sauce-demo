@@ -1,0 +1,23 @@
+[
+    {
+        "test_name": "test_complete_purchase[standard_user-secret_sauce]",
+        "status": "PASS",
+        "execution_time": 59.17,
+        "execution_date": "2026-06-28 13:38:44",
+        "screenshot": "reports\\screenshots\\passed\\test_complete_purchase[standard_user-secret_sauce]_20260628_133843.png"
+    },
+    {
+        "test_name": "test_logout[standard_user-secret_sauce]",
+        "status": "PASS",
+        "execution_time": 12.89,
+        "execution_date": "2026-06-28 13:39:02",
+        "screenshot": "reports\\screenshots\\passed\\test_logout[standard_user-secret_sauce]_20260628_133902.png"
+    },
+    {
+        "test_name": "test_communication[standard_user-secret_sauce]",
+        "status": "PASS",
+        "execution_time": 39.82,
+        "execution_date": "2026-06-28 13:39:47",
+        "screenshot": "reports\\screenshots\\passed\\test_communication[standard_user-secret_sauce]_20260628_133947.png"
+    }
+]

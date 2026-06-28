@@ -1,0 +1,8 @@
+[
+  {
+    "test_name": "test_complete_purchase",
+    "status": "PASS",
+    "screenshot": "reports/screenshots/passed/...",
+    "execution_time": "53.43"
+  }
+]
