@@ -1,18 +1,27 @@
-# Reports
-allure-results/
-allure-report/
-reports/
+# Virtual Environment
+.venv/
 
-# Screenshots
-screenshots/
-
-# Python cache
+# Python Cache
 __pycache__/
 *.pyc
 
-# Virtual Environment
-.venv/
+# PyCharm
+.idea/
+
+# Allure Reports
+allure-results/
+allure-report/
+
+# Custom Reports
+reports/
 
 # Logs
 logs/
 *.log
+
+# Temporary Files
+temp_test.py
+
+# OS Files
+.DS_Store
+Thumbs.db
