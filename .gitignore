@@ -1,19 +1,17 @@
-# Python
+# Reports
+allure-results/
+allure-report/
+reports/
+
+# Screenshots
+screenshots/
+
+# Python cache
 __pycache__/
 *.pyc
 
 # Virtual Environment
 .venv/
-
-# Reports
-allure-results/
-allure-report/
-reports/screenshots/
-reports/output.json
-reports/step_results.json
-
-# IDE
-.idea/
 
 # Logs
 logs/
