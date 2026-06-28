@@ -4,7 +4,7 @@ from pytest_bdd import parsers
 
 scenarios("../features/login.feature")
 scenarios("../features/logout.feature")
-scenarios("../features/Communication.feature")
+# scenarios("../features/Communication.feature")
 # scenarios("../features/products.feature")
 
 

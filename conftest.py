@@ -226,6 +226,43 @@ def write_test_result(result_data):
 # CLIENT FIXTURE
 # ============================================================
 
+# @pytest.fixture(scope="function")
+# def client():
+#
+#     global CURRENT_DRIVER
+#
+#     obj = Client()
+#
+#     obj.driver = webdriver.Chrome(
+#         service=Service(
+#             ChromeDriverManager().install()
+#         )
+#     )
+#
+#     CURRENT_DRIVER = obj.driver
+#
+#     obj.driver.maximize_window()
+#
+#     obj.login_stepimpl = LoginStepImpl()
+#     obj.inventory_stepimpl = InventoryStepImpl()
+#     obj.cart_stepimpl = CartStepImpl()
+#     obj.checkout_stepimpl = CheckoutStepImpl()
+#     obj.back_home_stepimpl = BackhomeStepImpl()
+#     obj.sauce_labs_fleece_jacket_stepimpl = SaucelabsfleecejacketStepImpl()
+#     obj.hamburger_menu_stepimpl = HamburgerMenuStepImpl()
+#     obj.sidebar_about_stepimpl = Sidebaraboutstepimpl()
+#
+#     yield obj
+#
+#     obj.driver.quit()
+#
+#     CURRENT_DRIVER = None
+# ==================================================================================================
+# New crome code
+
+CURRENT_DRIVER = None
+
+
 @pytest.fixture(scope="function")
 def client():
 
@@ -233,10 +270,25 @@ def client():
 
     obj = Client()
 
+    options = webdriver.ChromeOptions()
+
+    prefs = {
+        "credentials_enable_service": False,
+        "profile.password_manager_enabled": False
+    }
+
+    options.add_experimental_option("prefs", prefs)
+
+    options.add_argument("--disable-save-password-bubble")
+    options.add_argument("--disable-features=PasswordCheck")
+    options.add_argument("--disable-password-generation")
+    options.add_argument("--guest")
+
     obj.driver = webdriver.Chrome(
         service=Service(
             ChromeDriverManager().install()
-        )
+        ),
+        options=options
     )
 
     CURRENT_DRIVER = obj.driver
@@ -257,8 +309,6 @@ def client():
     obj.driver.quit()
 
     CURRENT_DRIVER = None
-
-
 # ============================================================
 # SCREENSHOT + REPORT HOOK
 # ============================================================
