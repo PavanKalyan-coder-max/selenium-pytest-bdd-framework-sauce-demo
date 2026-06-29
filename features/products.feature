@@ -1,4 +1,4 @@
-Feature: Complete Checkout
+Feature: products page
 
 
    Scenario Outline: Complete purchase

@@ -1,4 +1,4 @@
-Feature: Complete Checkout
+Feature: communication page
 
 
    Scenario Outline: Communication

@@ -85,5 +85,27 @@ class Sidebaraboutstepimpl:
          verifying_get_text.verify_text()
 
 
+     def go_to_app(self, client):
+
+         go_to_app_button_click = Sidebaraboutpage(client.driver)
+         go_to_app_button_click.go_to_app_button()
+
+
+     def try_for_free_button(self,client):
+
+         try_for_free_button_link = Sidebaraboutpage(client.driver)
+         try_for_free_button_link.try_for_free_button()
+
+     def logo_visa_page(self, client):
+
+         logo_visa_page_text = Sidebaraboutpage(client.driver)
+         logo_visa_page_text.logo_visa()
+
+
+
+     def index_disclaimer_text(self,client):
+
+         index_disclaimer_text_verify = Sidebaraboutpage(client.driver)
+         index_disclaimer_text_verify.index_disclaimer_text()
 
 

@@ -25,7 +25,10 @@ class Sidebaraboutlocator:
     GET_MESSAGE = (By.XPATH, "//span[text()='Built on the Sauce Labs enterprise-grade platform, trusted by thousands of global brands']")
 
 
-
+    GO_TO_APP = (By.XPATH, "//button[@class='MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedDark MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-colorDark MuiButton-disableElevation MuiButton-root MuiButton-outlined MuiButton-outlinedDark MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-colorDark MuiButton-disableElevation navFullButton css-1tdjwy7']")
+    TRY_FOR_FREE = (By.XPATH, "//a[@class='block text-center link link--inline']")
+    INDEX_DISCLAIMER = (By.XPATH, "//p[@class='index_disclaimer__gzXob']")
+    LOGO_VISA = (By.XPATH, "//img[@src='/sign-up/visa-logo.svg']")
 
 
 

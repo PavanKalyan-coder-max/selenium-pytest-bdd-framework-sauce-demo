@@ -1,4 +1,4 @@
-Feature: Complete Checkout
+Feature: logout scenario
 
 
    Scenario Outline: logout

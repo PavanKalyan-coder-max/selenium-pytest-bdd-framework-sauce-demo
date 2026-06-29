@@ -2,10 +2,11 @@ from pytest_bdd import scenarios, given, when, then
 import time
 from pytest_bdd import parsers
 
-scenarios("../features/login.feature")
-scenarios("../features/logout.feature")
+# scenarios("../features/login.feature")
+# scenarios("../features/logout.feature")
 # scenarios("../features/Communication.feature")
 # scenarios("../features/products.feature")
+scenarios("../features/new_account.feature")
 
 
 @given("User launches SauceDemo application")
@@ -167,6 +168,41 @@ def products_button(client):
 @when("User verify the text")
 def verify_get_text(client):
     client.sidebar_about_stepimpl.verify_get_text(client)
+
+@when("User clicks on go to app")
+def go_to_app(client):
+    client.sidebar_about_stepimpl.go_to_app(client)
+
+
+
+
+
+@when("User clicks on try for free")
+def try_for_free_button(client):
+    client.sidebar_about_stepimpl.try_for_free_button(client)
+
+
+@when("User verify index disclaimer text")
+def index_disclaimer_text(client):
+    client.sidebar_about_stepimpl.index_disclaimer_text(client)
+    time.sleep(5)
+
+@when("User verify visa logo")
+def logo_visa_page(client):
+
+    client.sidebar_about_stepimpl.logo_visa_page(client)
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -104,3 +104,28 @@ class BasePage:
                     f"Unable to enter text into "
                     f"{locator}. Error: {str(e)}"
                 )
+
+    def is_displayed(self, locator):
+
+        try:
+
+            element = WebDriverWait(
+                self.driver,
+                10
+            ).until(
+                EC.visibility_of_element_located(locator)
+            )
+
+            return element.is_displayed()
+
+        except Exception as e:
+
+            ScreenshotUtil.capture(
+                self.driver,
+                "is_displayed_failure"
+            )
+
+            raise Exception(
+                f"Unable to verify visibility of "
+                f"{locator}. Error: {str(e)}"
+            )

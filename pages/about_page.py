@@ -88,3 +88,30 @@ class Sidebaraboutpage(BasePage):
 
 
 
+     def index_disclaimer_text(self):
+
+         actual_text = self.get_text(Sidebaraboutlocator.INDEX_DISCLAIMER)
+
+         expected_text = "By signing in, you agree with the "
+
+         assert expected_text in actual_text
+
+         print("✓ Platform text verified successfully")
+
+     def logo_visa(self):
+         result = self.is_displayed(Sidebaraboutlocator.LOGO_VISA)
+         print(result)
+
+
+
+
+     def go_to_app_button(self):
+         self.click(Sidebaraboutlocator.GO_TO_APP)
+
+
+     def try_for_free_button(self):
+         self.click(Sidebaraboutlocator.TRY_FOR_FREE)
+
+
+
+
