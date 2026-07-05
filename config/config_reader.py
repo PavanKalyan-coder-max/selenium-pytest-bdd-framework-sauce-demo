@@ -19,6 +19,10 @@ class ConfigReader:
         return config.get(ENV, "url")
 
     @staticmethod
+    def get_heroku_url():
+        return config.get(ENV, "heroku_url")
+
+    @staticmethod
     def get_browser():
         return config.get(ENV, "browser")
 

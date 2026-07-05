@@ -6,9 +6,11 @@ Feature: products page
    Given User launches SauceDemo application
 
     When User logs in with "<username>" and "<password>"
-    And User clicks hamburgermenu
-    And User clicks on about
-    And User clicks on products
+    And User selects multiple products
+
+#    And User clicks hamburgermenu
+#    And User clicks on about
+#    And User clicks on products
 
 
 

@@ -303,6 +303,7 @@ def client():
     obj.sauce_labs_fleece_jacket_stepimpl = SaucelabsfleecejacketStepImpl()
     obj.hamburger_menu_stepimpl = HamburgerMenuStepImpl()
     obj.sidebar_about_stepimpl = Sidebaraboutstepimpl()
+    obj.heroku_stepimpl = herokustepimpl()
 
     yield obj
 
@@ -436,3 +437,6 @@ def pytest_sessionfinish(session, exitstatus):
     )
 
     print("REPORT OPENED IN BROWSER")
+
+
+from step_implementation.heroku_stepimpl import herokustepimpl

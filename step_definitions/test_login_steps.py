@@ -6,13 +6,18 @@ from pytest_bdd import parsers
 # scenarios("../features/logout.feature")
 # scenarios("../features/Communication.feature")
 # scenarios("../features/products.feature")
-scenarios("../features/new_account.feature")
+# scenarios("../features/new_account.feature")
+scenarios("../features/heroku_features/alert.feature")
+
 
 
 @given("User launches SauceDemo application")
 def launch_application(client):
     client.login_stepimpl.launch_application(client)
 
+@given("User launches heroku web application")
+def launch_application(client):
+    client.heroku_stepimpl.launch_application(client)
 
 # @when("User enters valid username and password")
 # def login(client):
@@ -193,19 +198,78 @@ def logo_visa_page(client):
     client.sidebar_about_stepimpl.logo_visa_page(client)
 
 
+@when("User selects multiple products")
+def click_multiple_locators(client):
+    client.sidebar_about_stepimpl.click_multiple_locators(client)
+    time.sleep(5)
+
+@when("User clicks on java alerts")
+def heroku_click_alert(client):
+    client.heroku_stepimpl.heroku_click_alert(client)
 
 
 
+@when("User click on JS alert")
+def click_on_JS_alerts_step(client):
+    client.heroku_stepimpl.click_on_JS_alerts_step(client)
+    # time.sleep(4)
+
+
+@when("User accept the JS alert")
+def accept_alert(client):
+    client.heroku_stepimpl.accept_alert(client)
+    time.sleep(4)
+
+
+@when("User dismiss the JS alert")
+def dismiss_alert(client):
+    client.heroku_stepimpl.dismiss_alert(client)
+    # time.sleep(4)
+
+@when("User navigates back to home page")
+def go_to_home_page(client):
+    client.heroku_stepimpl.go_to_home_page(client)
+
+
+@when("User clicks on dropdown link")
+def click_dropdown_link(client):
+    client.heroku_stepimpl.click_dropdown_link(client)
+
+
+# @when("User clicks on dropdown box")
+# def click_dropdown_box(client):
+#     client.heroku_stepimpl.click_dropdown_box(client)
+#     time.sleep(3)
+
+
+# @when('User selects "{option}" from dropdown')
+# def select_dropdown(client, option):
+#
+#     client.heroku_stepimpl.select_dropdown_step(
+#         client,
+#         option
+#     )
 
 
 
+@when(parsers.parse('User selects "{option}" from dropdown'))
+def select_dropdown_step(client, option):
+
+    client.heroku_stepimpl.select_dropdown_step(
+        client,
+        option
+    )
+    time.sleep(3)
 
 
+@when("User clicks file upload")
+def click_file_upload(client):
+    client.heroku_stepimpl.click_file_upload(client)
 
+@when(parsers.parse('User uploads "{file_path}"'))
+def upload_file_step(client, file_path):
 
-
-
-
-
-
-
+    client.heroku_stepimpl.upload_file_step(
+        client,
+        file_path
+    )

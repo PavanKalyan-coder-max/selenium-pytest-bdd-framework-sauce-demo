@@ -114,4 +114,7 @@ class Sidebaraboutpage(BasePage):
 
 
 
+     def click_multiple_products(self):
+
+         self.click_multiple(Sidebaraboutlocator.BOLT_TSHIRT, Sidebaraboutlocator.ONE_SIE, Sidebaraboutlocator.RED_TSHIRT)
 

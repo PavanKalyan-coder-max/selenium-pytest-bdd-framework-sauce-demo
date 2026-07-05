@@ -108,4 +108,8 @@ class Sidebaraboutstepimpl:
          index_disclaimer_text_verify = Sidebaraboutpage(client.driver)
          index_disclaimer_text_verify.index_disclaimer_text()
 
+     def click_multiple_locators(self, client):
+
+         clicking_multiple_locators = Sidebaraboutpage(client.driver)
+         clicking_multiple_locators.click_multiple_products()
 

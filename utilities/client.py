@@ -11,5 +11,6 @@ class Client:
         self.sauce_labs_fleece_jacket_stepimpl = None
         self.hamburger_menu_stepimpl = None
         self.sidebar_about_stepimpl = None
+        self.heroku_stepimpl = None
 
 

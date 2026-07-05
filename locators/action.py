@@ -30,6 +30,10 @@ class Sidebaraboutlocator:
     INDEX_DISCLAIMER = (By.XPATH, "//p[@class='index_disclaimer__gzXob']")
     LOGO_VISA = (By.XPATH, "//img[@src='/sign-up/visa-logo.svg']")
 
+    BOLT_TSHIRT = (By.XPATH, "//button[@id='add-to-cart-sauce-labs-bolt-t-shirt']")
+    ONE_SIE = (By.XPATH, "//button[@id='add-to-cart-sauce-labs-onesie']")
+    RED_TSHIRT = (By.XPATH, "//button[@id='add-to-cart-test.allthethings()-t-shirt-(red)']")
+
 
 
 
