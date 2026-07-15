@@ -173,6 +173,7 @@ from step_implementation.sauce_labs_fleece_jacket_stepimpl import Saucelabsfleec
 from step_implementation.hamburger_menu_stepimpl import HamburgerMenuStepImpl
 from step_implementation.sidebar_about_stepimpl import Sidebaraboutstepimpl
 
+
 import os
 import json
 import pytest
@@ -182,8 +183,21 @@ from datetime import datetime
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from webdriver_manager.chrome import ChromeDriverManager
-
+from selenium.webdriver.edge.service import Service as EdgeService
+from webdriver_manager.microsoft import EdgeChromiumDriverManager
+from selenium.webdriver.firefox.service import Service as FirefoxService
+from webdriver_manager.firefox import GeckoDriverManager
+from utilities.browser_factory import BrowserFactory
 from config.config_reader import ENV
+
+
+def pytest_addoption(parser):
+    parser.addoption(
+        "--browser",
+        action="store",
+        default="chrome",
+        help="Browser Name"
+    )
 
 print(f"Running in Environment: {ENV}")
 
@@ -264,11 +278,15 @@ CURRENT_DRIVER = None
 
 
 @pytest.fixture(scope="function")
-def client():
+def client(request):
 
     global CURRENT_DRIVER
 
     obj = Client()
+
+    browser = request.config.getoption("--browser").lower()
+
+    print(f"Selected Browser : {browser}")
 
     options = webdriver.ChromeOptions()
 
@@ -284,12 +302,7 @@ def client():
     options.add_argument("--disable-password-generation")
     options.add_argument("--guest")
 
-    obj.driver = webdriver.Chrome(
-        service=Service(
-            ChromeDriverManager().install()
-        ),
-        options=options
-    )
+    obj.driver = BrowserFactory.get_driver(browser)
 
     CURRENT_DRIVER = obj.driver
 

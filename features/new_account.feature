@@ -1,3 +1,5 @@
+
+@regression
 Feature: new account app page
 
 

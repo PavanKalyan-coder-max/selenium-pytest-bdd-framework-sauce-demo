@@ -11,6 +11,7 @@ class Herokulocators:
 
     FILE_UPLOADS = (By.XPATH, "//input[@id='file-upload']")
     UPLOAD_BUTTON = (By.XPATH, "//input[@id='file-submit']")
+    TITLE = (By.XPATH, "//h1[@class='heading']")
 
 
 

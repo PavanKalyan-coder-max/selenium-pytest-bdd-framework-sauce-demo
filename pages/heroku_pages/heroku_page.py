@@ -50,4 +50,37 @@ class HerokuPages(BasePage):
         )
 
 
+    def page_title(self):
+        element = self.get_text(Herokulocators.TITLE)
+        print(element)
+
+
+    def current_url(self):
+        URL = self.get_current_url()
+        print(URL)
+
+
+    def verify_current_url(self):
+        actual_url = self.get_current_url()
+        print(actual_url)
+        assert actual_url == "https://the-internet.herokuapp.com/"
+
+        print("verified current url")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

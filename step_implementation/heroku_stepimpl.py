@@ -61,4 +61,36 @@ class herokustepimpl:
         uploading_files.click_upload()
 
 
+    def get_page_title(self, client):
+        get_the_page_title = HerokuPages(client.driver)
+        get_the_page_title.page_title()
+
+    def current_url(self, client):
+
+        get_current_url = HerokuPages(client.driver)
+        get_current_url.current_url()
+
+    def verify_current_url(self, client):
+        verified_current_url = HerokuPages(client.driver)
+        verified_current_url.verify_current_url()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

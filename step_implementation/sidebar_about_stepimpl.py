@@ -113,3 +113,21 @@ class Sidebaraboutstepimpl:
          clicking_multiple_locators = Sidebaraboutpage(client.driver)
          clicking_multiple_locators.click_multiple_products()
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -273,3 +273,27 @@ def upload_file_step(client, file_path):
         client,
         file_path
     )
+
+@when("User prints page title")
+def page_title_print(client):
+    client.heroku_stepimpl.get_page_title(client)
+    # time.sleep(3)
+
+@when("User prints current url")
+def current_page_url(client):
+    client.heroku_stepimpl.current_url(client)
+
+
+@when("User verifies current url")
+def verify_page_url(client):
+    client.heroku_stepimpl.verify_current_url(client)
+
+
+
+
+
+
+
+
+
+
