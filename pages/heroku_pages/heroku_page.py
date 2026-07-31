@@ -9,12 +9,12 @@ class HerokuPages(BasePage):
 
     def heroku_page_alert(self):
 
-        self.click(Herokulocators.ALERTS)
+        self.click(Herokulocators.ALERTS, "Alerts")
 
 
     def click_on_js_alert(self):
 
-         self.click(Herokulocators.CLICK_ON_JS_ALERT)
+         self.click(Herokulocators.CLICK_ON_JS_ALERT, "CLICKED ON JS ALERT")
 
     def accept_js_alert(self):
         self.accept_alert()
@@ -36,7 +36,7 @@ class HerokuPages(BasePage):
 
     def file_upload(self):
 
-        self.click(Herokulocators.FILE_UPLOAD)
+        self.click(Herokulocators.FILE_UPLOAD, "FILE UPLOADED")
 
     def choose_file(self, file_path):
         self.upload_file(
@@ -46,7 +46,7 @@ class HerokuPages(BasePage):
 
     def click_upload(self):
         self.click(
-            Herokulocators.UPLOAD_BUTTON
+            Herokulocators.UPLOAD_BUTTON, "UPLOAD_BUTTON"
         )
 
 

@@ -2,24 +2,41 @@ import os
 from datetime import datetime
 
 
+# class ScreenshotUtil:
+
+    # @staticmethod
+    # def capture(driver, name):
+    #
+    #     folder = "screenshots"
+    #
+    #     os.makedirs(folder, exist_ok=True)
+    #
+    #     timestamp = datetime.now().strftime(
+    #         "%Y%m%d_%H%M%S"
+    #     )
+    #
+    #     path = os.path.join(
+    #         folder,
+    #         f"{name}_{timestamp}.png"
+    #     )
+    #
+    #     driver.save_screenshot(path)
+    #
+    #     return path
+
 class ScreenshotUtil:
 
-    @staticmethod
-    def capture(driver, name):
+        @staticmethod
+        def capture(driver, name, folder="reports/screenshots"):
+            os.makedirs(folder, exist_ok=True)
 
-        folder = "screenshots"
+            timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
 
-        os.makedirs(folder, exist_ok=True)
+            path = os.path.join(
+                folder,
+                f"{name}_{timestamp}.png"
+            )
 
-        timestamp = datetime.now().strftime(
-            "%Y%m%d_%H%M%S"
-        )
+            driver.save_screenshot(path)
 
-        path = os.path.join(
-            folder,
-            f"{name}_{timestamp}.png"
-        )
-
-        driver.save_screenshot(path)
-
-        return path
+            return path

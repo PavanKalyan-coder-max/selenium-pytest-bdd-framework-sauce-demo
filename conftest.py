@@ -172,6 +172,11 @@ from step_implementation.back_home_stepimpl import BackhomeStepImpl
 from step_implementation.sauce_labs_fleece_jacket_stepimpl import SaucelabsfleecejacketStepImpl
 from step_implementation.hamburger_menu_stepimpl import HamburgerMenuStepImpl
 from step_implementation.sidebar_about_stepimpl import Sidebaraboutstepimpl
+from step_implementation.ubersupplier_stepimpl import Ubersuppimpl
+from step_implementation.clario_stepimpl import ClarioertStepImpl
+
+
+
 
 
 import os
@@ -317,6 +322,9 @@ def client(request):
     obj.hamburger_menu_stepimpl = HamburgerMenuStepImpl()
     obj.sidebar_about_stepimpl = Sidebaraboutstepimpl()
     obj.heroku_stepimpl = herokustepimpl()
+    obj.ubersupplier_stepimpl = Ubersuppimpl()
+    obj.clario_stepimpl = ClarioertStepImpl()
+
 
     yield obj
 
@@ -367,10 +375,12 @@ def pytest_runtest_makereport(item, call):
             "status": "PASS",
             "execution_time": round(report.duration, 2),
             "execution_date": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
-            "screenshot": screenshot_path
+            "screenshot": screenshot_path,
+            "steps": STEP_RESULTS.copy()
         }
 
         write_test_result(test_result)
+        STEP_RESULTS.clear()
 
     # ========================================================
     # FAIL
@@ -401,10 +411,12 @@ def pytest_runtest_makereport(item, call):
             "status": "FAIL",
             "execution_time": round(report.duration, 2),
             "execution_date": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
-            "screenshot": screenshot_path
+            "screenshot": screenshot_path,
+            "steps": STEP_RESULTS.copy()
         }
 
         write_test_result(test_result)
+        STEP_RESULTS.clear()
 
     import subprocess
 
@@ -451,5 +463,94 @@ def pytest_sessionfinish(session, exitstatus):
 
     print("REPORT OPENED IN BROWSER")
 
+    print("\n===== STEP RESULTS =====")
+
+    for step in STEP_RESULTS:
+        print(step)
+
+    print("========================")
+
 
 from step_implementation.heroku_stepimpl import herokustepimpl
+
+STEP_RESULTS = []
+
+def pytest_bdd_before_step(
+        request,
+        feature,
+        scenario,
+        step,
+        step_func
+):
+
+    STEP_RESULTS.append({
+
+        "step": step.name,
+
+        "keyword": step.keyword,
+
+        "status": "RUNNING"
+
+    })
+
+
+from selenium.common.exceptions import UnexpectedAlertPresentException
+
+
+def pytest_bdd_after_step(
+        request,
+        feature,
+        scenario,
+        step,
+        step_func,
+        step_func_args
+):
+
+    screenshot = ""
+
+    try:
+
+        screenshot = ScreenshotUtil.capture(
+            CURRENT_DRIVER,
+            step.name.replace(" ", "_"),
+            "reports/screenshots/steps"
+        )
+
+    except UnexpectedAlertPresentException:
+
+        print(f"Skipping screenshot because alert is open : {step.name}")
+
+    STEP_RESULTS[-1]["status"] = "PASS"
+    STEP_RESULTS[-1]["screenshot"] = screenshot
+
+
+from selenium.common.exceptions import UnexpectedAlertPresentException
+
+def pytest_bdd_step_error(
+        request,
+        feature,
+        scenario,
+        step,
+        step_func,
+        step_func_args,
+        exception
+):
+
+    screenshot = ""
+
+    try:
+
+        screenshot = ScreenshotUtil.capture(
+            CURRENT_DRIVER,
+            step.name.replace(" ", "_"),
+            "reports/screenshots/steps"
+        )
+
+    except UnexpectedAlertPresentException:
+
+        print("Cannot capture screenshot because alert is open.")
+
+    STEP_RESULTS[-1]["status"] = "FAIL"
+    STEP_RESULTS[-1]["screenshot"] = screenshot
+
+from utilities.screenshot_util import ScreenshotUtil

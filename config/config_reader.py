@@ -23,6 +23,10 @@ class ConfigReader:
         return config.get(ENV, "heroku_url")
 
     @staticmethod
+    def get_uber_supplier_url():
+        return config.get(ENV, "company_url")
+
+    @staticmethod
     def get_browser():
         return config.get(ENV, "browser")
 
@@ -34,9 +38,17 @@ class ConfigReader:
     def get_password():
         return config.get(ENV, "password")
 
+    @staticmethod
+    def get_uber_email():
+        return config.get(ENV, "uber_email")
 
+    @staticmethod
+    def get_uber_password():
+        return config.get(ENV, "uber_password")
 
-
+    @staticmethod
+    def get_clario_url():
+        return config.get(ENV, "clario_url")
 
 
 

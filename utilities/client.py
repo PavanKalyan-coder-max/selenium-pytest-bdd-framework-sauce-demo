@@ -12,5 +12,7 @@ class Client:
         self.hamburger_menu_stepimpl = None
         self.sidebar_about_stepimpl = None
         self.heroku_stepimpl = None
+        self.ubersupplier_stepimpl = None
+        self.clario_stepimpl = None
 
 

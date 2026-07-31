@@ -3,6 +3,8 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import Select
 from utilities.screenshot_util import ScreenshotUtil
+from utilities.logger import Logger
+logger = Logger.get_logger()
 
 
 
@@ -57,9 +59,13 @@ class BasePage:
         return text
 
 
-    def click(self, locator):
+    def click(self, locator, description="Element"):
 
         try:
+
+            logger.info(
+                f"Clicking on : {description}"
+            )
 
             WebDriverWait(
                 self.driver,
@@ -68,7 +74,19 @@ class BasePage:
                 EC.element_to_be_clickable(locator)
             ).click()
 
+            logger.info(
+                f"Successfully clicked : {description}"
+            )
+
         except Exception as e:
+
+            logger.error(
+                f"Unable to click : {description}"
+            )
+
+            logger.error(
+                str(e)
+            )
 
             ScreenshotUtil.capture(
                 self.driver,
