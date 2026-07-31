@@ -7,9 +7,9 @@ from pytest_bdd import parsers
 # scenarios("../features/Communication.feature")
 # scenarios("../features/products.feature")
 # scenarios("../features/new_account.feature")
-# scenarios("../features/heroku_features/alert.feature")
+scenarios("../features/heroku_features/alert.feature")
 # scenarios("../features/uber_feature/uber_login.feature")
-scenarios("../features/clario_feature/create_account2.feature")
+# scenarios("../features/clario_feature/create_account2.feature")
 
 
 
