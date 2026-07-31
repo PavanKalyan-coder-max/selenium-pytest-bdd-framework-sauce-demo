@@ -9,6 +9,7 @@ class Sidebaraboutlocator:
 
     BOOK_A_DEMO = (By.XPATH, "//button[text()='Book a demo']")
 
+
     BUSINESS_MAIL = (By.XPATH, "//input[@name='Email']")
     COMPANY_NAME = (By.XPATH, "//input[@name='Company']")
     COMMENTS_TEXT = (By.XPATH, "//textarea[@id='Sales_Contact_Comments__c']")

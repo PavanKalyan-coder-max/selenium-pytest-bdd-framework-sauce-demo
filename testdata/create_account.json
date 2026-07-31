@@ -1,0 +1,10 @@
+{
+    "valid_user": {
+        "email": "pavan@gmail.com",
+        "confirm_email": "pavan@gmail.com",
+        "first_name": "Pavan",
+        "last_name": "Sonta",
+        "password": "Test@123",
+        "confirm_password": "Test@123"
+    }
+}

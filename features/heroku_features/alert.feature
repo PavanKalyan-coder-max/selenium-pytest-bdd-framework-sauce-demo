@@ -6,7 +6,7 @@ Feature: Complete Checkout
      When User clicks on java alerts
      And User click on JS alert
 #     And User accept the JS alert
-     And User dismiss the JS alert
+#     And User dismiss the JS alert
      And User navigates back to home page
      And User clicks on dropdown link
 #     And User clicks on dropdown box
@@ -22,4 +22,6 @@ Feature: Complete Checkout
 
 
 
-
+Examples:
+| username      | password     |
+| standard_user | secret_sauce |

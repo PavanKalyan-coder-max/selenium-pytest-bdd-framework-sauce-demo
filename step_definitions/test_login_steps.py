@@ -8,6 +8,9 @@ from pytest_bdd import parsers
 # scenarios("../features/products.feature")
 # scenarios("../features/new_account.feature")
 scenarios("../features/heroku_features/alert.feature")
+# scenarios("../features/uber_feature/uber_login.feature")
+# scenarios("../features/clario_feature/create_account2.feature")
+
 
 
 
@@ -19,10 +22,47 @@ def launch_application(client):
 def launch_application(client):
     client.heroku_stepimpl.launch_application(client)
 
-# @when("User enters valid username and password")
-# def login(client):
-#     time.sleep(5)
-#     client.login_stepimpl.login_to_application(client)
+
+@given("User launches uber web application")
+def launch_application(client):
+    client.ubersupplier_stepimpl.launch_application(client)
+
+
+@when("User enters valid email")
+def uber_page_email(client):
+    client.ubersupplier_stepimpl.uber_page_email(client)
+    # client.ubersupplier_stepimpl.uber_page_email(client, "nlogan+test+avfleet@ext.uber.com")
+    time.sleep(4)
+
+
+@when("User enters valid uber password")
+def click_on_password(client):
+    # client.ubersupplier_stepimpl.click_on_password(client, "Uber12345")
+    client.ubersupplier_stepimpl.click_on_password(client)
+    time.sleep(4)
+
+
+
+@when("User clicks on continue")
+def uber_submit(client):
+    client.ubersupplier_stepimpl.uber_submit(client)
+
+@when("User clicks on more options")
+def click_on_more_options(client):
+    client.ubersupplier_stepimpl.click_on_more_options(client)
+
+
+@when("User clicks on password option")
+def click_on_password_option(client):
+    client.ubersupplier_stepimpl.click_on_password_option(client)
+
+
+@when("User clicks on next button")
+def click_next(client):
+    client.ubersupplier_stepimpl.click_next_button(client)
+    time.sleep(4)
+
+
 
 @when(parsers.parse('User logs in with "{username}" and "{password}"'))
 def login(client, username, password):
@@ -290,7 +330,67 @@ def verify_page_url(client):
 
 
 
+@when("User clicks on vehicles beta")
+def click_vehicles_beta(client):
+    client.ubersupplier_stepimpl.click_vehicles_beta(client)
+    time.sleep(5)
 
+
+@given("User launches ERT Clario URL")
+def launch_application(client):
+    client.clario_stepimpl.launch_application(client)
+    time.sleep(5)
+
+@when("User clicks on create acocunt")
+def click_on_create_account(client):
+    client.clario_stepimpl.click_on_create_account(client)
+    time.sleep(5)
+
+# @when('User enters Email "{email}"')
+# def enter_email(client, email):
+#     client.clario_stepimpl.enter_email(email)
+#     time.sleep(5)
+
+
+# @when(parsers.parse('User enters Email "{email}"'))
+# def enter_email(client, email):
+#     client.clario_stepimpl.enter_email(client, email)
+#     time.sleep(5)
+
+
+@when("User enters Email from JSON")
+def enter_email(client):
+    client.clario_stepimpl.enter_email(client)
+
+
+@when("User enters Confirm Email from JSON")
+def enter_confirm_email(client):
+    client.clario_stepimpl.enter_confirm_email(client)
+
+
+@when("User enters First Name from JSON")
+def enter_first_name(client):
+    client.clario_stepimpl.enter_first_name(client)
+
+
+@when("User enters Last Name from JSON")
+def enter_last_name(client):
+    client.clario_stepimpl.enter_last_name(client)
+
+
+@when("User enters Password from JSON")
+def enter_password(client):
+    client.clario_stepimpl.enter_password(client)
+
+
+@when("User enters Confirm Password from JSON")
+def enter_confirm_password(client):
+    client.clario_stepimpl.enter_confirm_password(client)
+
+
+@then("User details should be entered successfully")
+def verify_user_details():
+    print("User details entered successfully.")
 
 
 
