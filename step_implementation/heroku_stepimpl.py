@@ -1,5 +1,6 @@
 from pages.heroku_pages.heroku_page import HerokuPages
 from config.config_reader import ConfigReader
+from selenium.webdriver import ActionChains
 
 
 class herokustepimpl:
@@ -74,7 +75,24 @@ class herokustepimpl:
         verified_current_url = HerokuPages(client.driver)
         verified_current_url.verify_current_url()
 
+    def button_drag_and_drop(self, client):
 
+        page = HerokuPages(client.driver)
+        page.button_drag_and_drop()
+
+
+    def click_drag_and_drop(self,client):
+
+        page = HerokuPages(client.driver)
+        page.click_drag_and_drop()
+
+    def click_on_frames(self, client):
+        page = HerokuPages(client.driver)
+        page.click_frames()
+
+    def click_on_iframes(self, client):
+        page = HerokuPages(client.driver)
+        page.click_iframes()
 
 
 

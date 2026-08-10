@@ -12,6 +12,11 @@ class Herokulocators:
     FILE_UPLOADS = (By.XPATH, "//input[@id='file-upload']")
     UPLOAD_BUTTON = (By.XPATH, "//input[@id='file-submit']")
     TITLE = (By.XPATH, "//h1[@class='heading']")
+    DRAG_AND_DROP = (By.XPATH, "//a[text()='Drag and Drop']")
+    SOURCE_CODE = (By.XPATH, "//div[@id='column-a']")
+    TARGET_CODE = (By.XPATH, "//div[@id='column-b']")
+    FRAMES = (By.XPATH, "//a[text()='Frames']")
+    IFRAMES = (By.XPATH, "//a[text()='iFrame']")
 
 
 

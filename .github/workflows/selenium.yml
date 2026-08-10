@@ -9,7 +9,7 @@ jobs:
   test:
     runs-on: windows-latest
 
-    steps:
+    steps:git
 
       - name: Checkout Code
         uses: actions/checkout@v4

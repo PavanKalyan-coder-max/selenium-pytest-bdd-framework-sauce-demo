@@ -317,7 +317,7 @@ def upload_file_step(client, file_path):
 @when("User prints page title")
 def page_title_print(client):
     client.heroku_stepimpl.get_page_title(client)
-    # time.sleep(3)
+    time.sleep(3)
 
 @when("User prints current url")
 def current_page_url(client):
@@ -393,7 +393,20 @@ def verify_user_details():
     print("User details entered successfully.")
 
 
+@when("User clicks on drag and drop")
+def button_drag_and_drop(client):
+    client.heroku_stepimpl.button_drag_and_drop(client)
+
+@when("User dragged from a to b")
+def click_drag_and_drop(client):
+    client.heroku_stepimpl.click_drag_and_drop(client)
+    time.sleep(5)
 
 
+@when("User clicks on frames")
+def click_on_frames(client):
+    client.heroku_stepimpl.click_on_frames(client)
 
-
+@when("User clicks on iframes")
+def click_on_iframes(client):
+    client.heroku_stepimpl.click_on_iframes(client)

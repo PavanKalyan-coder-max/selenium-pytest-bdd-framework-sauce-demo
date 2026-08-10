@@ -10,6 +10,7 @@ class Clariolocators:
     LAST_NAME = (By.ID, "last-name")
     PASSWORD = (By.ID, "password")
     CONFIRM_PASSWORD = (By.ID, "confirm-password")
+    CLOSE_BUTTON = (By.XPATH, "//button[@class='es-icon es-icon-close es-close']")
 
 
 

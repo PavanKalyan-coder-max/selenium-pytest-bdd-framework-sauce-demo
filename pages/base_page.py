@@ -5,7 +5,7 @@ from selenium.webdriver.support.ui import Select
 from utilities.screenshot_util import ScreenshotUtil
 from utilities.logger import Logger
 logger = Logger.get_logger()
-
+from selenium.webdriver import ActionChains
 
 
 class BasePage:
@@ -36,6 +36,9 @@ class BasePage:
         self.driver.switch_to.window(
             self.driver.window_handles[-1]
         )
+
+    def switch_to_window(self, window_handle):
+        self.driver.switch_to.window(window_handle)
 
     def select_dropdown_by_text(self, locator, text):
         element = WebDriverWait(self.driver, 10).until(
@@ -317,3 +320,56 @@ class BasePage:
 
     def upload_file(self, locator, file_path):
         self.driver.find_element(*locator).send_keys(file_path)
+
+
+    def drag_and_drop(self, source_locator, target_locator):
+
+        try:
+
+            source = WebDriverWait(
+                self.driver,
+                10
+            ).until(
+                EC.visibility_of_element_located(source_locator)
+            )
+
+            target = WebDriverWait(
+                self.driver,
+                10
+            ).until(
+                EC.visibility_of_element_located(target_locator)
+            )
+
+            ActionChains(
+                self.driver
+            ).drag_and_drop(
+                source,
+                target
+            ).perform()
+
+            logger.info("Drag and Drop performed successfully")
+
+        except Exception as e:
+
+            logger.error("Unable to perform Drag and Drop")
+            logger.error(str(e))
+
+            ScreenshotUtil.capture(
+                self.driver,
+                "drag_and_drop_failure"
+            )
+
+            raise Exception(
+                f"Unable to perform Drag and Drop. Error: {str(e)}"
+            )
+
+    def switch_to_frame(self, locator):
+
+        frame = WebDriverWait(
+            self.driver,
+            10
+        ).until(
+            EC.presence_of_element_located(locator)
+        )
+
+        self.driver.switch_to.frame(frame)

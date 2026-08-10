@@ -10,6 +10,11 @@ class ClarioertStepImpl():
         client.driver.get(
             ConfigReader.get_clario_url())
 
+    def click_on_close_button(self, client):
+
+        page = ClarioPage(client.driver)
+        page.click_close_button()
+
 
     def click_on_create_account(self, client):
 

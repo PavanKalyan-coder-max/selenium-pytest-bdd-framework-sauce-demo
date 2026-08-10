@@ -52,3 +52,7 @@ class ClarioPage(BasePage):
             Clariolocators.CONFIRM_PASSWORD,
             confirm_password
         )
+
+    def click_close_button(self):
+
+        self.click(Clariolocators.CLOSE_BUTTON)

@@ -69,7 +69,18 @@ class HerokuPages(BasePage):
 
 
 
+    def button_drag_and_drop(self):
+        self.click(Herokulocators.DRAG_AND_DROP, "clicked on drag and drop button")
 
+    def click_drag_and_drop(self):
+
+        self.drag_and_drop(Herokulocators.SOURCE_CODE, Herokulocators.TARGET_CODE,)
+
+    def click_frames(self):
+        self.click(Herokulocators.FRAMES, "clicked on frames")
+
+    def click_iframes(self):
+        self.click(Herokulocators.IFRAMES, "clicked on iframes")
 
 
 
