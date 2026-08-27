@@ -27,3 +27,71 @@ class uberpage(BasePage):
     def click_vehicles_beta(self):
         self.click(UberSupplierLocator.VEHICLES_BETA)
 
+    def click_filter(self):
+        self.click(UberSupplierLocator.FILTER)
+
+    def click_checkboxes(self, index):
+       # checkboxes = self.click(UberSupplierLocator.FILTER_CHECKBOXES)
+       # checkboxes[index].click()
+
+       checkboxes = self.driver.find_elements(
+           *UberSupplierLocator.FILTER_CHECKBOXES
+       )
+
+       checkboxes[index].click()
+
+    def click_apply(self):
+        self.click(UberSupplierLocator.CLICK_APPLY)
+
+    def click_add_vehicle(self):
+        self.click(UberSupplierLocator.ADD_VEHICLE)
+
+    def add_vehicle_name(self, text):
+        self.enter_text(UberSupplierLocator.ADD_VEHICLE_NAME, "Productionuber")
+
+    def add_optional_name(self, text):
+        self.enter_text(UberSupplierLocator.ADD_OPTIONAL_ID, "hey")
+
+    def add_document_file(self, filename):
+        self.upload_file(
+            UberSupplierLocator.ADD_DOCUMENT,
+            filename
+        )
+
+    def click_submit_button(self):
+        self.click(UberSupplierLocator.CLICK_SUBMIT_BUTTON)
+
+
+    def verify_vehicle_added(self):
+        actual = self.get_text(UberSupplierLocator.VEHICLE_ADDED)
+
+        expected = "PROD"
+
+        assert actual == expected
+        print("vehicle added")
+
+
+
+    def click_tickets(self):
+        self.click(UberSupplierLocator.TICKETS)
+
+
+    def create_new_ticket(self):
+        self.click(UberSupplierLocator.NEW_TICKET)
+
+    def choose_vehicle(self):
+        self.select_custom_dropdown(
+            UberSupplierLocator.SELECT_VEHICLE,
+            UberSupplierLocator.TEST1
+        )
+
+    def choose_issue_type(self):
+        self.select_custom_dropdown(UberSupplierLocator.SELECT_ISSUE_TYPE, UberSupplierLocator.LOST_ITEM)
+
+    def click_on_submmit_and_claim(self):
+        self.click(UberSupplierLocator.SUBMIT_AND_CLAIM)
+
+    def enter_description(self, text):
+        self.enter_text(UberSupplierLocator.DESCRIPTION, "uber@123")
+
+

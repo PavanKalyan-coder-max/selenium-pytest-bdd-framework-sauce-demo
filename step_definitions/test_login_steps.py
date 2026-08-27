@@ -7,8 +7,8 @@ from pytest_bdd import parsers
 # scenarios("../features/Communication.feature")
 # scenarios("../features/products.feature")
 # scenarios("../features/new_account.feature")
-scenarios("../features/heroku_features/alert.feature")
-# scenarios("../features/uber_feature/uber_login.feature")
+# scenarios("../features/heroku_features/alert.feature")
+scenarios("../features/uber_feature/uber_login.feature")
 # scenarios("../features/clario_feature/create_account2.feature")
 
 
@@ -410,3 +410,68 @@ def click_on_frames(client):
 @when("User clicks on iframes")
 def click_on_iframes(client):
     client.heroku_stepimpl.click_on_iframes(client)
+
+@when("User clicks on filters")
+def click_on_filter(client):
+    client.ubersupplier_stepimpl.click_on_filter(client)
+
+@when("User clicks on filters and verifies all filter options")
+def click_all_filters(client):
+    client.ubersupplier_stepimpl.test_all_filters(client)
+    # time.sleep(5)
+
+@when("User clicks on add vehicles")
+def click_on_add_vehicle(client):
+    client.ubersupplier_stepimpl.click_on_add_vehicle(client)
+
+@when("User writes vehicles name")
+def add_vehicle_id(client):
+    client.ubersupplier_stepimpl.add_vehicle_id(client)
+
+
+@when("User writes optional name")
+def add_optional_id(client):
+    client.ubersupplier_stepimpl.add_optional_id(client)
+
+
+@when("User uploads vehicle registration document")
+def add_document_file_vehicle_registration(client):
+    client.ubersupplier_stepimpl.add_document_file_vehicle_registration(client)
+    # time.sleep(10)
+
+@when("User click on add vehicle submit button")
+def click_on_submit_button(client):
+    client.ubersupplier_stepimpl.click_on_submit_button(client)
+
+@when("User verifies the added vehicle is visible in the vehicles list")
+def verify_vehicle_added(client):
+    client.ubersupplier_stepimpl.verify_vehicle_added(client)
+
+@when("User clicks on tickets tab")
+def click_on_tickets(client):
+    client.ubersupplier_stepimpl.click_on_tickets(client)
+
+@when("User clicks on create new ticket")
+def create_new_ticket(client):
+    client.ubersupplier_stepimpl.create_new_ticket(client)
+
+
+
+@when("User selects test1 vehicle")
+def choose_vehicle(client):
+    client.ubersupplier_stepimpl.choose_vehicle(client)
+
+
+@when("User selects issue type lost items")
+def choose_issue_type(client):
+    client.ubersupplier_stepimpl.choose_issue_type(client)
+
+
+@when("User click on submit and claim button")
+def click_submit_and_claim(client):
+    client.ubersupplier_stepimpl.click_submt_and_claim(client)
+
+
+@when("User enters description")
+def enter_description(client):
+    client.ubersupplier_stepimpl.enter_description(client)

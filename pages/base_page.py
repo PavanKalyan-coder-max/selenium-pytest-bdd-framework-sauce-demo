@@ -373,3 +373,12 @@ class BasePage:
         )
 
         self.driver.switch_to.frame(frame)
+
+    def select_custom_dropdown(self, dropdown_locator, option_locator):
+        self.click(dropdown_locator)
+
+        WebDriverWait(self.driver, 10).until(
+            EC.visibility_of_element_located(option_locator)
+        )
+
+        self.click(option_locator)

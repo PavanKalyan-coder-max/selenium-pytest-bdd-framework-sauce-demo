@@ -1,5 +1,7 @@
 from pages.uber_pages.uber_page import uberpage
 from config.config_reader import ConfigReader
+from utilities import client
+
 
 class Ubersuppimpl():
 
@@ -45,3 +47,72 @@ class Ubersuppimpl():
     def click_vehicles_beta(self,client):
         vehicles_beta = uberpage(client.driver)
         vehicles_beta.click_vehicles_beta()
+
+
+    def click_on_filter(self,client):
+        page = uberpage(client.driver)
+        page.click_filter()
+
+    def test_all_filters(self, client):
+        page = uberpage(client.driver)
+
+        for index in range(31):
+
+            page.click_filter()
+            page.click_checkboxes(index)
+            page.click_apply()
+
+    def click_on_add_vehicle(self, client):
+        page = uberpage(client.driver)
+        page.click_add_vehicle()
+
+    def add_vehicle_id(self, client):
+        page = uberpage(client.driver)
+        page.add_vehicle_name("Prod")
+
+    def add_optional_id(self, client):
+        page = uberpage(client.driver)
+        page.add_optional_name("hey")
+
+    def add_document_file_vehicle_registration(self, client):
+        page = uberpage(client.driver)
+        page.add_document_file(r"C:\Users\DELL\Downloads\uberss.PNG")
+
+    def click_on_submit_button(self, client):
+        page = uberpage(client.driver)
+        page.click_submit_button()
+
+
+    def verify_vehicle_added(self,client):
+        page = uberpage(client.driver)
+        page.verify_vehicle_added()
+
+    def click_on_tickets(self,client):
+        page = uberpage(client.driver)
+        page.click_tickets()
+
+    def create_new_ticket(self, client):
+        page = uberpage(client.driver)
+        page.create_new_ticket()
+
+
+    def choose_vehicle(self, client):
+        page = uberpage(client.driver)
+        page.choose_vehicle()
+
+    def choose_issue_type(self, client):
+        page = uberpage(client.driver)
+        page.choose_issue_type()
+
+    def click_submt_and_claim(self, client):
+        page = uberpage(client.driver)
+        page.click_on_submmit_and_claim()
+
+    def enter_description(self, client):
+        page = uberpage(client.driver)
+        page.enter_description("uber@123")
+
+
+
+
+
