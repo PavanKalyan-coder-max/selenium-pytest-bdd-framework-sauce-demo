@@ -1,6 +1,6 @@
 from pages.base_page import BasePage
 from locators.uber.uber_locators import UberSupplierLocator
-
+from selenium.webdriver.common.by import By
 
 class uberpage(BasePage):
 
@@ -47,7 +47,7 @@ class uberpage(BasePage):
         self.click(UberSupplierLocator.ADD_VEHICLE)
 
     def add_vehicle_name(self, text):
-        self.enter_text(UberSupplierLocator.ADD_VEHICLE_NAME, "Productionuber")
+        self.enter_text(UberSupplierLocator.ADD_VEHICLE_NAME, "fleetapp")
 
     def add_optional_name(self, text):
         self.enter_text(UberSupplierLocator.ADD_OPTIONAL_ID, "hey")
@@ -95,3 +95,23 @@ class uberpage(BasePage):
         self.enter_text(UberSupplierLocator.DESCRIPTION, "uber@123")
 
 
+    def click_driver(self):
+        self.click(UberSupplierLocator.DRIVER)
+
+    def click_add_driver(self):
+        self.click(UberSupplierLocator.ADD_DRIVER)
+
+    def add_phone_number(self):
+        self.enter_text(UberSupplierLocator.ADD_PHONE_NUMBER, "9700355208")
+
+    def add_email_id(self):
+        self.enter_text(UberSupplierLocator.ADD_EMAIL_ID, "ubertestdriver07@gmail.com")
+
+    def add_first_name(self):
+        self.enter_text(UberSupplierLocator.FIRST_NAME, "Autodriver1")
+
+    def add_last_name(self):
+        self.enter_text(UberSupplierLocator.LAST_NAME, "Autodriver2")
+
+    def submit_add_driver(self):
+        self.click(UberSupplierLocator.ADD_NEW_DRIVER)
