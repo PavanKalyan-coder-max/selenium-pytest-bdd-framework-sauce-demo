@@ -112,6 +112,42 @@ class Ubersuppimpl():
         page = uberpage(client.driver)
         page.enter_description("uber@123")
 
+    def click_drivers(self,client):
+        page = uberpage(client.driver)
+        page.click_driver()
+
+    def click_add_drivers(self,client):
+        page = uberpage(client.driver)
+        page.click_add_driver()
+
+    def add_phone_number(self, client):
+        page = uberpage(client.driver)
+        page.add_phone_number()
+
+
+    def add_email_id(self, client):
+        page = uberpage(client.driver)
+        page.add_email_id()
+
+    def add_first_name(self,client):
+        page = uberpage(client.driver)
+        page.add_first_name()
+
+    def add_last_name(self,client):
+        page = uberpage(client.driver)
+        page.add_last_name()
+
+    def submit_add_driver(self, client):
+
+        page = uberpage(client.driver)
+        page.submit_add_driver()
+
+
+
+
+
+
+
 
 
 

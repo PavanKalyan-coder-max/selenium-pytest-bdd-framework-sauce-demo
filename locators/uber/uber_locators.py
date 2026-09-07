@@ -30,6 +30,16 @@ class UberSupplierLocator:
     DESCRIPTION = (By.XPATH, "//textarea[@type='textarea']")
     SUBMIT_AND_CLAIM = (By.XPATH, "//button[text()= 'Submit & Claim']")
     TOASTER = (By.XPATH, "//div[@data-baseweb='toaster']")
+    DRIVER = (By.XPATH, "//span[@data-testid='header-nav-/drivers']")
+    ADD_DRIVER = (By.XPATH, "//button[@data-testid='add-driver-button']")
+    # ADD_DRIVER = (By.XPATH, "//button[text()='Add driver']")
+
+    ADD_PHONE_NUMBER = (By.XPATH, "//input[@aria-label='phone-input']")
+    ADD_EMAIL_ID = (By.XPATH, "//input[@aria-label='email-input']")
+    FIRST_NAME = (By.XPATH, "//input[@aria-label='first-name-input']")
+    LAST_NAME = (By.XPATH, "//input[@aria-label='last-name-input']")
+    ADD_NEW_DRIVER = (By.XPATH, "//button[@aria-label='Add driver']")
+
 
 
 

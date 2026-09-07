@@ -27,6 +27,7 @@ Feature: Complete Checkout
 
 
 
+
 #Examples:
 #| username      | password     |
 #| standard_user | secret_sauce |

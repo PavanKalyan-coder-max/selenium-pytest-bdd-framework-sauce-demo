@@ -9,6 +9,9 @@ from pytest_bdd import parsers
 # scenarios("../features/new_account.feature")
 # scenarios("../features/heroku_features/alert.feature")
 scenarios("../features/uber_feature/uber_login.feature")
+scenarios("../features/uber_feature/Drivers_tab.feature")
+# scenarios("../features/uber_feature")
+
 # scenarios("../features/clario_feature/create_account2.feature")
 
 
@@ -442,6 +445,7 @@ def add_document_file_vehicle_registration(client):
 @when("User click on add vehicle submit button")
 def click_on_submit_button(client):
     client.ubersupplier_stepimpl.click_on_submit_button(client)
+    time.sleep(5)
 
 @when("User verifies the added vehicle is visible in the vehicles list")
 def verify_vehicle_added(client):
@@ -475,3 +479,41 @@ def click_submit_and_claim(client):
 @when("User enters description")
 def enter_description(client):
     client.ubersupplier_stepimpl.enter_description(client)
+
+
+@when("User clicks on drivers tab")
+def click_drivers(client):
+    client.ubersupplier_stepimpl.click_drivers(client)
+    # time.sleep(10)
+
+
+@when("User click on add drivers button")
+def click_add_drivers(client):
+    client.ubersupplier_stepimpl.click_add_drivers(client)
+
+
+@when("User enters a phone number")
+def add_phone_number(client):
+    client.ubersupplier_stepimpl.add_phone_number(client)
+
+
+@when("User enters email ID")
+def add_email_id(client):
+    client.ubersupplier_stepimpl.add_email_id(client)
+
+@when("User enters first name")
+def add_first_name(client):
+    client.ubersupplier_stepimpl.add_first_name(client)
+
+
+@when("User enters last name")
+def add_last_name(client):
+    client.ubersupplier_stepimpl.add_last_name(client)
+
+
+@when("User clicks on add driver")
+def submit_add_driver(client):
+    client.ubersupplier_stepimpl.submit_add_driver(client)
+
+
+
