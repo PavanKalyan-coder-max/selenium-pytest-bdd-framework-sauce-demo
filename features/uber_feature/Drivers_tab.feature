@@ -14,5 +14,12 @@ Feature: Drivers tab
         And User enters first name
         And User enters last name
         And User clicks on add driver
+#        And User scrolls the page to bottom
+        And User scrolls the page to element
+        And User click on vehicles tab
+        And User clicks on add vehicle button
+        And User enters license plate number
+        And User clicks on vehicles tab
+
 
 

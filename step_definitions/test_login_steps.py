@@ -8,7 +8,7 @@ from pytest_bdd import parsers
 # scenarios("../features/products.feature")
 # scenarios("../features/new_account.feature")
 # scenarios("../features/heroku_features/alert.feature")
-scenarios("../features/uber_feature/uber_login.feature")
+# scenarios("../features/uber_feature/uber_login.feature")
 scenarios("../features/uber_feature/Drivers_tab.feature")
 # scenarios("../features/uber_feature")
 
@@ -44,6 +44,19 @@ def click_on_password(client):
     client.ubersupplier_stepimpl.click_on_password(client)
     time.sleep(4)
 
+
+# @when(parsers.parse('User enters email "{username}"'))
+# def uber_page_email(client, username):
+#     client.ubersupplier_stepimpl.uber_page_email(
+#         client, username
+#     )
+
+
+# @when(parsers.parse('User enters password "{password}"'))
+# def enter_uber_password(client, password):
+#     client.ubersupplier_stepimpl.click_on_password(
+#         client, password
+#     )
 
 
 @when("User clicks on continue")
@@ -517,3 +530,31 @@ def submit_add_driver(client):
 
 
 
+# @when("User scrolls the page to bottom")
+# def scroll_to_bottom(client):
+#     client.ubersupplier_stepimpl.scroll_to_bottom(client)
+#     time.sleep(5)
+
+@when("User scrolls the page to element")
+def scroll_into_vehicle_view(client):
+    client.ubersupplier_stepimpl.scroll_into_vehicle_view(client)
+    time.sleep(5)
+
+
+@when("User click on vehicles tab")
+def click_on_vehicles_tab(client):
+    client.ubersupplier_stepimpl.click_on_vehicles_tab(client)
+
+@when("User clicks on add vehicle button")
+def click_on_add_vehicle_vo(client):
+    client.ubersupplier_stepimpl.click_on_add_vehicle_vo(client)
+
+
+@when("User enters license plate number")
+def add_vehicle_license_plate_number(client):
+    client.ubersupplier_stepimpl.add_licence_plate_number(client)
+
+
+@when("User clicks on vehicles tab")
+def click_on_vehicles(client):
+    client.ubersupplier_stepimpl.click_on_vehicles(client)

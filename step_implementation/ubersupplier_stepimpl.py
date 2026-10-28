@@ -1,6 +1,8 @@
 from pages.uber_pages.uber_page import uberpage
 from config.config_reader import ConfigReader
 from utilities import client
+from utilities.json_reader import JsonReader
+from utilities.test_data_generator import generate_vehicle_name
 
 
 class Ubersuppimpl():
@@ -10,12 +12,29 @@ class Ubersuppimpl():
             ConfigReader.get_uber_supplier_url()
         )
 
+
+
+
+
+
+
     def uber_page_email(self, client):
 
         uber_page_email_enter = uberpage(client.driver)
         uber_page_email_enter.uber_page(
             ConfigReader.get_uber_email()
         )
+
+    # def uber_page_email(self, client, username):
+    #     uber_page_email_enter = uberpage(client.driver)
+    #     uber_page_email_enter.uber_page(username)
+
+
+
+
+
+
+
 
 
     def uber_submit(self,client):
@@ -38,6 +57,12 @@ class Ubersuppimpl():
         click_password.enter_password(
             ConfigReader.get_uber_password()
         )
+
+    # def click_on_password(self, client, password):
+    #     click_password = uberpage(client.driver)
+    #     click_password.enter_password(password)
+
+
 
     def click_next_button(self, client):
 
@@ -66,9 +91,31 @@ class Ubersuppimpl():
         page = uberpage(client.driver)
         page.click_add_vehicle()
 
+    # def add_vehicle_id(self, client):
+    #     page = uberpage(client.driver)
+    #     page.add_vehicle_name("Prod")
+
     def add_vehicle_id(self, client):
         page = uberpage(client.driver)
-        page.add_vehicle_name("Prod")
+
+        vehicle_name = generate_vehicle_name()
+
+        client.vehicle_name = vehicle_name
+
+        page.add_vehicle_name(vehicle_name)
+
+    # def add_vehicle_id(self, client):
+    #     page = uberpage(client.driver)
+    #
+    #     vehicle_data = JsonReader.get_data(
+    #         "vehicle_data.json",
+    #         "invalid_vehicle"
+    #     )
+    #
+    #     vehicle_name = vehicle_data["name"]
+    #     client.vehicle_name = vehicle_name
+    #
+    #     page.add_vehicle_name(vehicle_name)
 
     def add_optional_id(self, client):
         page = uberpage(client.driver)
@@ -83,9 +130,13 @@ class Ubersuppimpl():
         page.click_submit_button()
 
 
-    def verify_vehicle_added(self,client):
+    # def verify_vehicle_added(self,client):
+    #     page = uberpage(client.driver)
+    #     page.verify_vehicle_added()
+
+    def verify_vehicle_added(self, client):
         page = uberpage(client.driver)
-        page.verify_vehicle_added()
+        page.verify_vehicle_added(client.vehicle_name)
 
     def click_on_tickets(self,client):
         page = uberpage(client.driver)
@@ -143,12 +194,33 @@ class Ubersuppimpl():
         page.submit_add_driver()
 
 
+    def scroll_to_bottom(self, client):
+        page = uberpage(client.driver)
+        page.scroll_to_last()
 
 
 
+    def scroll_into_vehicle_view(self, client):
+        page = uberpage(client.driver)
+        page.scroll_to_vehicle_view()
 
 
+    def click_on_vehicles_tab(self, client):
+        page = uberpage(client.driver)
+        page.click_vehicles_tab()
 
 
+    def click_on_add_vehicle_vo(self,client):
+        page = uberpage(client.driver)
+        page.click_add_vehicle_vo()
+
+
+    def add_licence_plate_number(self,client):
+        page = uberpage(client.driver)
+        page.add_licence_plate_number()
+
+    def click_on_vehicles(self, client):
+        page = uberpage(client.driver)
+        page.click_vehicles()
 
 

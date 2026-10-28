@@ -1,0 +1,11 @@
+
+{
+  "valid_vehicle": {
+    "name": "Honda City",
+    "expected_valid": true
+  },
+  "invalid_vehicle": {
+    "name": "TestVehicle123456",
+    "expected_valid": false
+  }
+}

@@ -46,8 +46,13 @@ class uberpage(BasePage):
     def click_add_vehicle(self):
         self.click(UberSupplierLocator.ADD_VEHICLE)
 
+    # def add_vehicle_name(self, text):
+    #     self.enter_text(UberSupplierLocator.ADD_VEHICLE_NAME, "fleetapp")
+
     def add_vehicle_name(self, text):
-        self.enter_text(UberSupplierLocator.ADD_VEHICLE_NAME, "fleetapp")
+        self.enter_text(UberSupplierLocator.ADD_VEHICLE_NAME, text)
+
+
 
     def add_optional_name(self, text):
         self.enter_text(UberSupplierLocator.ADD_OPTIONAL_ID, "hey")
@@ -62,14 +67,19 @@ class uberpage(BasePage):
         self.click(UberSupplierLocator.CLICK_SUBMIT_BUTTON)
 
 
-    def verify_vehicle_added(self):
+    # def verify_vehicle_added(self):
+    #     actual = self.get_text(UberSupplierLocator.VEHICLE_ADDED)
+    #
+    #     expected = "PROD"
+    #
+    #     assert actual == expected
+    #     print("vehicle added")
+    def verify_vehicle_added(self, expected):
         actual = self.get_text(UberSupplierLocator.VEHICLE_ADDED)
 
-        expected = "PROD"
-
         assert actual == expected
-        print("vehicle added")
 
+        print(f"Vehicle added successfully: {actual}")
 
 
     def click_tickets(self):
@@ -115,3 +125,22 @@ class uberpage(BasePage):
 
     def submit_add_driver(self):
         self.click(UberSupplierLocator.ADD_NEW_DRIVER)
+
+
+    def scroll_to_last(self):
+        self.scroll_to_bottom()
+
+    def scroll_to_vehicle_view(self):
+        self.scroll_to_element(UberSupplierLocator.VEHICLE_VIEW)
+
+    def click_vehicles_tab(self):
+        self.click(UberSupplierLocator.VEHICLES_TAB)
+
+    def click_add_vehicle_vo(self):
+        self.click(UberSupplierLocator.ADD_VEHICLE_VO)
+
+    def add_licence_plate_number(self):
+        self.enter_text(UberSupplierLocator.LICENCE_PLATE, "Autonomous")
+
+    def click_vehicles(self):
+        self.click(UberSupplierLocator.VEHICLES)

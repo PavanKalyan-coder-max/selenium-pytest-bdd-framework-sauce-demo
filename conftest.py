@@ -151,6 +151,7 @@ def pytest_runtest_makereport(item, call):
 
     if report.passed:
 
+
         folder = os.path.join(
             "reports",
             "screenshots",

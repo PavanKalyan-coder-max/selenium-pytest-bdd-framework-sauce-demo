@@ -12,7 +12,8 @@ class UberSupplierLocator:
     # VEHICLES_BETA = (By.XPATH, "(//span[normalize-space()='Vehicles (Beta)'])[2]")
     VEHICLES_BETA = (By.XPATH, "//span[normalize-space()='Vehicles (Beta)']")
     FILTER = (By.XPATH, "//div[@data-testid='filter-icon']")
-    FILTER_CHECKBOXES = (By.XPATH, "//span[@class='_css-lhNqTx']")
+    # FILTER_CHECKBOXES = (By.XPATH, "//span[@class='_css-lhNqTx']")
+    FILTER_CHECKBOXES = (By.XPATH, "//span[@class='_css-izQkGd']")
     CLICK_APPLY = (By.XPATH, "//button[@class='_css-cByeRv']")
     # ADD_VEHICLE = (By.XPATH, "//button[@id='bui12__anchor']")
     ADD_VEHICLE = (By.XPATH, "//button[@data-testid='add-vehicle-btn']")
@@ -39,10 +40,13 @@ class UberSupplierLocator:
     FIRST_NAME = (By.XPATH, "//input[@aria-label='first-name-input']")
     LAST_NAME = (By.XPATH, "//input[@aria-label='last-name-input']")
     ADD_NEW_DRIVER = (By.XPATH, "//button[@aria-label='Add driver']")
+    VEHICLE_VIEW = (By.XPATH, "//div[text()='3 vehicles']")
+    VEHICLES_TAB = (By.XPATH, "//span[@data-testid='header-nav-/vehicles']")
+    ADD_VEHICLE_VO = (By.XPATH, "//button[@data-testid='add-vehicle-button']")
+    LICENCE_PLATE = (By.XPATH, "//input[@data-testid='license-plate-input']")
 
 
-
-
+    VEHICLES = (By.XPATH, "//span[@data-testid='header-nav-/vehicles']")
 
 
 

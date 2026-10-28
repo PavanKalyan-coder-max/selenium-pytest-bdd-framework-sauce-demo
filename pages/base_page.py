@@ -47,6 +47,20 @@ class BasePage:
 
         Select(element).select_by_visible_text(text)
 
+    def select_dropdown_by_index(self, locator, index):
+        element = WebDriverWait(self.driver, 10).until(
+            EC.visibility_of_element_located(locator)
+        )
+
+        Select(element).select_by_index(index)
+
+    def select_dropdown_by_value(self, locator, value):
+        element = WebDriverWait(self.driver, 10).until(
+            EC.visibility_of_element_located(locator)
+        )
+
+        Select(element).select_by_value(value)
+
     def get_text(self, locator):
 
         text = WebDriverWait(
@@ -149,6 +163,56 @@ class BasePage:
 
             raise Exception(
                 f"Unable to verify visibility of "
+                f"{locator}. Error: {str(e)}"
+            )
+
+    def is_enabled(self, locator):
+
+        try:
+
+            element = WebDriverWait(
+                self.driver,
+                10
+            ).until(
+                EC.visibility_of_element_located(locator)
+            )
+
+            return element.is_enabled()
+
+        except Exception as e:
+
+            ScreenshotUtil.capture(
+                self.driver,
+                "is_enabled_failure"
+            )
+
+            raise Exception(
+                f"Unable to verify enabled status of "
+                f"{locator}. Error: {str(e)}"
+            )
+
+    def is_selected(self, locator):
+
+        try:
+
+            element = WebDriverWait(
+                self.driver,
+                10
+            ).until(
+                EC.visibility_of_element_located(locator)
+            )
+
+            return element.is_selected()
+
+        except Exception as e:
+
+            ScreenshotUtil.capture(
+                self.driver,
+                "is_selected_failure"
+            )
+
+            raise Exception(
+                f"Unable to verify selected status of "
                 f"{locator}. Error: {str(e)}"
             )
 
@@ -374,6 +438,18 @@ class BasePage:
 
         self.driver.switch_to.frame(frame)
 
+    def switch_to_default_content(self):
+
+        self.driver.switch_to.default_content()
+
+        print("Switched to Default Content")
+
+    def switch_to_parent_frame(self):
+
+        self.driver.switch_to.parent_frame()
+
+        print("Switched to Parent Frame")
+
     def select_custom_dropdown(self, dropdown_locator, option_locator):
         self.click(dropdown_locator)
 
@@ -382,3 +458,27 @@ class BasePage:
         )
 
         self.click(option_locator)
+
+
+
+# Scroll down by pixels
+    def scroll_down(self, pixels=500):
+        self.driver.execute_script(
+            "window.scrollBy(0, arguments[0]);",
+            pixels
+        )
+
+    # Scroll directly to an element
+    def scroll_to_element(self, locator):
+        element = self.driver.find_element(*locator)
+
+        self.driver.execute_script(
+            "arguments[0].scrollIntoView({block: 'center'});",
+            element
+        )
+
+    # Scroll to bottom
+    def scroll_to_bottom(self):
+        self.driver.execute_script(
+            "window.scrollTo(0, document.body.scrollHeight);"
+        )
